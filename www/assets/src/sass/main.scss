@@ -1,0 +1,35 @@
+@import "core/bootstrap";
+@import "core/fontawesome";
+@import "core/loadingIndicator";
+@import "core/forms";
+
+
+html {
+	body {
+		display: flex;
+		min-height: 100vh;
+		flex-direction: column;
+
+		header {
+			margin-bottom: 2rem;
+
+			nav.navbar {
+				background-color: #efefef;
+				border-bottom: 1px solid #ccc;
+				box-shadow: $box-shadow;
+			}
+		}
+
+		main {
+			flex: 1;
+		}
+
+		footer {
+			margin-top: 1rem;
+			padding: 1.5rem 0;
+			border-top: 1px solid #ccc;
+			font-size: 90%;
+			color: #666;
+		}
+	}
+}

@@ -1,0 +1,20 @@
+extensions:
+	nextras.dbal: Nextras\Dbal\Bridges\NetteDI\DbalExtension
+	nextras.orm: Nextras\Orm\Bridges\NetteDI\OrmExtension
+
+
+nextras.orm:
+	repositoryFinder: Nextras\Orm\Bridges\NetteDI\DIRepositoryFinder
+
+
+nextras.dbal:
+	driver: mysqli
+	host: %database.host%
+	database: %database.name%
+	username: %database.user%
+	password: %database.password%
+
+
+services:
+	- Nette\Caching\Cache
+	- Flexsyscz\Model\ConsistencyChecker\Checker

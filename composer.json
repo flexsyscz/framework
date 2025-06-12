@@ -1,0 +1,48 @@
+{
+	"name": "flexsyscz/framework",
+	"description": "Flexsys Framework Project",
+	"keywords": ["flexsyscz", "framework", "odyssey"],
+	"type": "project",
+	"license": ["MIT", "BSD-3-Clause", "GPL-2.0-only", "GPL-3.0-only"],
+	"require": {
+		"php": ">= 8.1",
+		"nette/application": "^3.2.3",
+		"nette/bootstrap": "^3.2",
+		"nette/caching": "^3.2",
+		"nette/database": "^3.2",
+		"nette/di": "^3.2",
+		"nette/forms": "^3.2",
+		"nette/http": "^3.3",
+		"nette/mail": "^4.0",
+		"nette/robot-loader": "^4.0",
+		"nette/security": "^3.2",
+		"nette/utils": "^4.0",
+		"latte/latte": "^3.0",
+		"tracy/tracy": "^2.10",
+		"flexsyscz/application": "^1.0",
+		"flexsyscz/security": "^2.0",
+		"flexsyscz/flash-messages": "^2.0",
+		"flexsyscz/date-time": "^2.1",
+		"flexsyscz/file-system": "^2.0",
+		"flexsyscz/model": "^2.0",
+		"flexsyscz/localization": "^2.0",
+		"flexsyscz/forms": "^2.0",
+		"flexsyscz/datagrids": "^2.0",
+		"ramsey/uuid": "^4.7"
+	},
+	"require-dev": {
+		"nette/tester": "^2.5",
+		"symfony/thanks": "^1"
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\": "app"
+		}
+	},
+	"minimum-stability": "stable",
+	"config": {
+		"allow-plugins": {
+			"symfony/thanks": true
+		}
+	}
+}

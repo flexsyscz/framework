@@ -1,0 +1,9 @@
+{varType bool $fixed}
+
+<div id="globalLoadingIndicator" n:class="d-none, isset($fixed) && $fixed ? position-fixed, shadow-lg"{if isset($fixed) && $fixed} style="left: 50%; margin-left: -120px; top: 80px; width: 240px; z-index: 1500"{else} style="width: 240px;"{/if}>
+	<div class="progress" role="progressbar">
+		<div class="progress-bar progress-bar-animated overflow-visible" style="width: 0">
+			<div class="px-3 text-nowrap"><i class="fas fa-spinner fa-spin me-2"></i>{_'!app.ajax.loading'}</div>
+		</div>
+	</div>
+</div>

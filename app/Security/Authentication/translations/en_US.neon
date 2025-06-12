@@ -1,0 +1,4 @@
+invalidCredentials: Invalid credentials.
+failure: An unexpected error occurred.
+userNotFound: Invalid credentials.
+accountBanned: Your account is banned due to too many invalid logins. Contact site administrator to restore the access.

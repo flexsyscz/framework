@@ -1,0 +1,10 @@
+/composer.lock
+/package-lock.json
+/config/local.neon
+/www/assets/dist
+/git-version.sh
+/vendor
+/temp
+/node_modules
+/.parcel-cache
+/version

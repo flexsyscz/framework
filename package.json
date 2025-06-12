@@ -1,0 +1,28 @@
+{
+	"name": "flexsyscz-framework",
+	"version": "1.0.0",
+	"default": "www/assets/dist/js/main.js",
+	"targets": {
+		"default": {
+			"source": "www/assets/src/js/main.js",
+			"outputFormat": "global"
+		}
+	},
+	"scripts": {
+		"watch": "parcel watch",
+		"build": "parcel build"
+	},
+	"devDependencies": {
+		"parcel": "^2.13"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-free": "^6.7",
+		"bootstrap": "^5.3",
+		"flatpickr": "^4.6",
+		"moment": "^2.30",
+		"naja": "^3.2",
+		"nette-forms": "^3.5",
+		"sass": "^1.83",
+		"@flexsyscz/datagrids": "^2.0"
+	}
+}

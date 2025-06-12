@@ -1,0 +1,29 @@
+{templateType App\UI\Front\Sign\SignTemplate}
+
+{block content}
+	<div class="container">
+		<div class="row">
+			<div class="col-12 offset-lg-3 col-lg-6">
+				<div class="card shadow">
+					<div class="card-header">{_'title.in'}</div>
+					<div class="card-body" n:snippet="main">
+						<h5 class="card-title pb-2 mb-4 border-bottom">{_'signIn'}</h5>
+						{control signInForm}
+					</div>
+					<div class="card-footer bg-light text-secondary">
+						<div class="d-flex">
+							<div class="flex-grow-1">
+								<small><i class="fas fa-code-branch me-2"></i>{_'version'}</small>
+							</div>
+							<div class="ms-4">
+								{block progressBar}
+									{include ../../Accessory/Presenters/templates/progressBar.latte}
+								{/block}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{/block}

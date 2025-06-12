@@ -1,0 +1,15 @@
+{templateType App\UI\Front\Home\HomeTemplate}
+
+{block content}
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h1>{_'hello'}</h1>
+				<div n:if="$user->isLoggedIn()">
+					<p>{_'username'}: {$identity?->getEntity()->username}</p>
+					<a n:href=":Front:Sign:out">{_'signOut'}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{/block}

@@ -1,0 +1,4 @@
+invalidCredentials: Neplatné přihlašovací údaje.
+failure: Nastala neočekávaná chyba při zpracování požadavku.
+userNotFound: Neplatné přihlašovací údaje.
+accountBanned: Účet je zablokován z důvodu příliš mnoho neplatných přihlášení. Pro obnovení přístupu se obraťte na správce webu.

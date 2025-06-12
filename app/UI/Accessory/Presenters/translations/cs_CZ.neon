@@ -1,0 +1,5 @@
+title: "Hello world!"
+footer: "© 2025 Václav Lukeš - flexsys.cz"
+version: "Flexsys Framework (build: Odyssey)"
+ajax:
+	loading: Probíhá zpracování požadavku...

@@ -1,0 +1,6 @@
+services:
+	- Flexsyscz\Localization\Translations\Configurator(_, App\Model\Languages\Languages::Czech, %debugMode%, defaultNamespace: app)
+	- Flexsyscz\Localization\Translations\Logger
+	- Flexsyscz\Localization\Translations\Repository
+	- Flexsyscz\Localization\Translations\TranslatorNamespaceFactory
+	- Flexsyscz\Localization\Translations\Translator

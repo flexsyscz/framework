@@ -1,0 +1,40 @@
+{templateType App\UI\Accessory\Presenters\BaseTemplate}
+
+<!DOCTYPE html>
+<html lang="{$language?->getShortCode()}"{if $scope}data-scope="{$scope}"{/if}>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>{ifset title}{include title|stripHtml} | {/ifset}{_'!app.title'}</title>
+
+	<link rel="stylesheet" href="{asset('css/main.css')}" />
+</head>
+
+<body>
+	<header>
+		{include templates/navBar.latte}
+		{if !hasBlock(progressBar)}{include templates/progressBar.latte fixed: true}{/if}
+		<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+	</header>
+	<main role="main">
+		{include content}
+	</main>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-6">
+					{_'!app.footer'}
+				</div>
+				<div class="col-12 col-lg-6 text-end">
+					{_'!app.version'}
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	{block scripts}
+		<script src="{asset('js/main.js')}"></script>
+	{/block}
+</body>
+</html>

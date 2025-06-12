@@ -1,0 +1,9 @@
+services:
+	- Flexsyscz\FileSystem\Directories\DocumentRoot(%appDir%/..)
+	- Flexsyscz\FileSystem\Directories\AppDirectory(%appDir%)
+	- Flexsyscz\FileSystem\Directories\ConfigDirectory(%appDir%/../config)
+	- Flexsyscz\FileSystem\Directories\LogDirectory(%appDir%/log)
+	- Flexsyscz\FileSystem\Directories\TempDirectory(%tempDir%)
+	- Flexsyscz\FileSystem\Directories\WwwDirectory(%wwwDir%)
+	- Flexsyscz\FileSystem\Directories\AssetsDirectory(%wwwDir%/assets/dist)
+	- Flexsyscz\FileSystem\Directories\DataDirectory(%wwwDir%/data)

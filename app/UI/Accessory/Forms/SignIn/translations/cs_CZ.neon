@@ -1,0 +1,12 @@
+username:
+	label: Uživatel
+	rules:
+		required: Uživatel je povinný parametr.
+
+password:
+	label: Heslo
+	rules:
+		required: Heslo je povinný parametr.
+
+submit:
+	label: Přihlásit

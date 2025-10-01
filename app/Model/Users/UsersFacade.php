@@ -4,16 +4,26 @@ declare(strict_types=1);
 
 namespace App\Model\Users;
 
-use Flexsyscz\Model\Facade;
+use Flexsyscz;
 use Flexsyscz\Model\Values;
+use Nextras;
 use Nextras\Orm\Collection\ICollection;
 use Nextras\Orm\Entity\IEntity;
 use Ramsey\Uuid\Uuid;
 
 
-final class  UsersFacade extends Facade
+/**
+ * @extends Flexsyscz\Model\Users\UsersFacade<IEntity>
+ *
+ * @method getRepository()  UsersRepository
+ */
+final class UsersFacade extends Flexsyscz\Model\Users\UsersFacade
 {
-	public function create(UserValues|Values $values): User|IEntity
+	/**
+	 * @param UserValues $values
+	 * @return User
+	 */
+	public function create(Values $values): User
 	{
 		$entity = new User();
 		$entity->id = Uuid::uuid4();
@@ -25,25 +35,42 @@ final class  UsersFacade extends Facade
 	}
 
 
-	public function update(User|IEntity $entity, UserValues|Values $values): void
+	/**
+	 * @param User $entity
+	 * @param UserValues $values
+	 * @return void
+	 */
+	public function update(IEntity $entity, Values $values): void
 	{
 	}
 
 
-	public function delete(User|IEntity $entity): void
+	/**
+	 * @param User $entity
+	 * @return void
+	 */
+	public function delete(IEntity $entity): void
 	{
 	}
 
 
+	/**
+	 * @return ICollection<User>
+	 */
 	public function findNotDeleted(): ICollection
 	{
 		return $this->getRepository()->findBy(['deletedAt' => null]);
 	}
 
 
-	public function getByUsername(string $username): User|IEntity|null
+	public function getByUsername(string $username): User|null
 	{
-		return $this->findNotDeleted()->getBy(['username' => $username]);
+		$user = $this->findNotDeleted()->getBy(['username' => $username]);
+		if ($user instanceof User) {
+			return $user;
+		}
+
+		return null;
 	}
 
 

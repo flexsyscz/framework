@@ -6,7 +6,7 @@ namespace App\Model\Users;
 
 use App\Model\Roles\Role;
 use App\Model\UserAuthTokens\UserAuthToken;
-use Flexsyscz\Model\Entity;
+use Flexsyscz;
 use Nextras\Dbal\Utils\DateTimeImmutable;
 use Nextras\Orm\Relationships\ManyHasMany;
 use Nextras\Orm\Relationships\OneHasMany;
@@ -23,6 +23,6 @@ use Nextras\Orm\Relationships\OneHasMany;
  * @property        OneHasMany|UserAuthToken[]          $authTokens                                     {1:m UserAuthToken::$user}
  * @property        ManyHasMany|Role[]                  $roles                                          {m:m Role::$users, isMain=true}
  */
-final class User extends Entity
+final class User extends Flexsyscz\Model\Users\User
 {
 }

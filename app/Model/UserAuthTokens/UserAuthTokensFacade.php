@@ -15,6 +15,8 @@ use Ramsey\Uuid\Uuid;
 
 
 /**
+ * @extends Facade<IEntity>
+ *
  * @method UserAuthTokensRepository      getRepository()
  */
 final class UserAuthTokensFacade extends Facade
@@ -23,7 +25,11 @@ final class UserAuthTokensFacade extends Facade
 	private const TokenValueExpires = '3 months';
 
 
-	public function create(UserAuthTokenValues|Values $values): UserAuthToken|IEntity
+	/**
+	 * @param UserAuthTokenValues $values
+	 * @return UserAuthToken
+	 */
+	public function create(Values $values): UserAuthToken
 	{
 		$entity = new UserAuthToken();
 		$entity->id = Uuid::uuid4();
@@ -38,7 +44,12 @@ final class UserAuthTokensFacade extends Facade
 	}
 
 
-	public function update(UserAuthToken|IEntity $entity, UserAuthTokenValues|Values $values): void
+	/**
+	 * @param UserAuthToken $entity
+	 * @param UserAuthTokenValues $values
+	 * @return void
+	 */
+	public function update(IEntity $entity, Values $values): void
 	{
 		$entity->user = $values->user;
 		$entity->remoteAddress = $values->remoteAddress;
@@ -48,15 +59,24 @@ final class UserAuthTokensFacade extends Facade
 	}
 
 
-	public function delete(UserAuthToken|IEntity $entity): void
+	/**
+	 * @param IEntity $entity
+	 * @return void
+	 */
+	public function delete(IEntity $entity): void
 	{
 		$this->getRepository()->remove($entity);
 	}
 
 
-	public function getByToken(string $token): UserAuthToken|IEntity|null
+	public function getByToken(string $token): UserAuthToken|null
 	{
-		return $this->getRepository()->getBy(['tokenValue' => $token]);
+		$authToken = $this->getRepository()->getBy(['tokenValue' => $token]);
+		if ($authToken instanceof UserAuthToken) {
+			return $authToken;
+		}
+
+		return null;
 	}
 
 

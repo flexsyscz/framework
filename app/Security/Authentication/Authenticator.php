@@ -43,7 +43,6 @@ final class Authenticator implements Nette\Security\Authenticator, IdentityHandl
 		}
 
 		if (!$this->passwords->verify($password, $user->password)) {
-			// @todo sign in attempts
 			throw new Nette\Security\AuthenticationException($this->translate('invalidCredentials'), self::InvalidCredential);
 		}
 

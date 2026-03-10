@@ -1,6 +1,10 @@
 parameters:
 
 
+php:
+	date.timezone: Europe/Prague
+
+
 application:
 	errorPresenter:
 		4xx: Error:Error4xx

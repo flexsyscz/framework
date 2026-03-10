@@ -8,11 +8,6 @@ decorator:
 		inject: true
 
 
-services:
-	- App\Core\RouterFactory::createRouter
-	- App\Security\Authentication\Authenticator
-
-
 search:
 	-	in: %appDir%
 		classes:
@@ -21,3 +16,8 @@ search:
 			- *Facade
 			- *Factory
 			- *Service
+
+
+services:
+	- App\Core\RouterFactory::createRouter
+	- App\Security\Authentication\Authenticator

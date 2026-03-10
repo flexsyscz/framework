@@ -1,5 +1,9 @@
 title: "Hello world!"
 footer: "© 2025 Václav Lukeš - flexsys.cz"
-version: "Flexsys Framework (build: Odyssey)"
+version: "Flexsys Framework (build: Voyager)"
 ajax:
 	loading: Request is being proccessed...
+
+flashes:
+    userNotFound: User not found.
+    notAuthorized: You are not authorized to access this resource.

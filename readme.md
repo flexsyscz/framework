@@ -1,4 +1,4 @@
-Flexsys Framework (Odyssey)
+Flexsys Framework (Voyager)
 ===========================
 
 Hello and welcome to the Flexsys framework project. This set of PHP libraries and components

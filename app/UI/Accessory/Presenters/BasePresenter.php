@@ -7,7 +7,6 @@ namespace App\UI\Accessory\Presenters;
 use App\Model\Languages\Languages;
 use Flexsyscz\Application\UI\Presenters\Presenter;
 use Flexsyscz\Security\User\LoggedUser;
-use Nette\Application\Attributes\Persistent;
 
 
 /**
@@ -15,33 +14,17 @@ use Nette\Application\Attributes\Persistent;
  */
 abstract class BasePresenter extends Presenter
 {
-	#[Persistent]
-	public ?string $locale;
-
-	#[Persistent]
-	public ?string $country;
-
-
-	public function startup(): void
-	{
-		parent::startup();
-
-		$this->translatorNamespace->repository->add(__DIR__ . '/translations');
-		if (isset($this->locale)) {
-			$languageCode = sprintf('%s_%s', $this->locale, $this->country ?? $this->locale);
-			foreach (Languages::cases() as $language) {
-				if ($language->getShortCode() === $this->locale || $language->value === $languageCode) {
-					$this->translatorNamespace->translator->setLanguage($language);
-				}
-			}
-		}
-	}
+	use PresenterCompositionTrait;
 
 
 	public function checkRequirements(mixed $element): void
 	{
 		if (method_exists($this, 'checkPermissions')) {
 			if (!$this->checkPermissions($element)) {
+				$this->registerDefaultTranslations();
+				if ($this->getUser()->isLoggedIn()) {
+					$this->flashError('!app.flashes.notAuthorized');
+				}
 				$this->redirect(':Front:Sign:in');
 			}
 		}

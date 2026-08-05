@@ -1,0 +1,121 @@
+{templateType App\UI\Error\Error4xx\Error4xxTemplate}
+
+{var $nav = [
+	'cs' => ['spaces' => 'Prostory', 'addSpace' => 'Přidat prostor', 'articles' => 'Magazín', 'contact' => 'Kontakty'],
+	'en' => ['spaces' => 'Spaces', 'addSpace' => 'Add Space', 'articles' => 'Magazine', 'contact' => 'Contacts'],
+]}
+
+<!DOCTYPE html>
+<html lang="{$locale}" class="front" id="frontSpaces">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>{$errorTitle} | Dejsiprostor</title>
+
+	{**<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">**}
+
+	<link rel="stylesheet" href="{asset('css/main.css')}" />
+	<link rel="apple-touch-icon" sizes="180x180" href="{asset('favicons/apple-touch-icon.png')}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{asset('favicons/favicon-32x32.png')}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{asset('favicons/favicon-16x16.png')}">
+	<link rel="manifest" href="{asset('favicons/site.webmanifest')}">
+	<meta name="theme-color" content="#ffffff">
+
+	<style>
+		#frontSpaces main .error-block {
+			max-width: 720px;
+			margin: 0 auto;
+			padding: 5rem 1.5rem 6rem;
+			text-align: center;
+		}
+		#frontSpaces main .error-code {
+			display: block;
+			font-weight: 800;
+			line-height: 1;
+			color: #f9af0b;
+			font-size: clamp(6rem, 18vw, 14rem);
+		}
+		#frontSpaces main .error-title {
+			font-size: 2rem;
+			font-weight: 600;
+			margin: 1rem 0 .75rem;
+		}
+		#frontSpaces main .error-text {
+			font-size: 1.1rem;
+			color: #555;
+			margin: 0 auto 2.5rem;
+			max-width: 32rem;
+		}
+		#frontSpaces main .error-back {
+			display: inline-block;
+			background: #f9af0b;
+			color: #000;
+			font-weight: 600;
+			padding: .85rem 2rem;
+			border-radius: 32px;
+		}
+		#frontSpaces main .error-back:hover {
+			text-decoration: none;
+			filter: brightness(.95);
+		}
+	</style>
+</head>
+
+<body class="fw-300">
+	<header>
+		<div class="container-xxl container-fluid position-relative">
+			<div class="nav-shadow"></div>
+		</div>
+		<nav class="navbar navbar-dark navbar-expand-lg fw-500">
+			<div class="container-fluid">
+				<a n:href=":Front:Spaces: locale => $locale" class="navbar-brand ms-2">
+					<img src="{asset('images/navbar-dark-logo.svg')}" alt="Dejsiprostor">
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a n:href=":Front:Spaces: locale => $locale" class="nav-link">{$nav[$locale]['spaces']}</a>
+						</li>
+						<li class="nav-item">
+							<a href="https://forms.office.com/Pages/ResponsePage.aspx?id=rdh23U4bdkitgTlyDhFAmY8rZ033WPNFiCy5AyY1jZBUN1A3SlNCSU9LS0ZFUzZVT0U5WFI1REQ2Ty4u" class="nav-link">{$nav[$locale]['addSpace']}</a>
+						</li>
+						<li class="nav-item">
+							<a n:href=":Front:Articles: locale => $locale" class="nav-link">{$nav[$locale]['articles']}</a>
+						</li>
+						<li class="nav-item">
+							<a n:href=":Front:Contact: locale => $locale" class="nav-link">{$nav[$locale]['contact']}</a>
+						</li>
+					</ul>
+					<ul class="navbar-nav ms-auto">
+						{foreach App\Model\Languages\Languages::cases() as $language}
+							<li n:class="nav-item, $iterator->isLast() ? me-lg-4">
+								<a n:href=":Front:Spaces: locale => $language->getShortCode()" n:class="nav-link, $locale === $language->getShortCode() ? active">{$language->getShortName()}</a>
+							</li>
+						{/foreach}
+						<li class="nav-item nav-social">
+							<a href="#" class="nav-link"><i class="fab fa-facebook-f"></i></a>
+						</li>
+						<li class="nav-item nav-social">
+							<a href="#" class="nav-link"><i class="fab fa-instagram"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<main role="main">
+		{include content}
+	</main>
+
+	{block scripts}
+		<script src="{asset('js/main.js')}"></script>
+	{/block}
+</body>
+</html>

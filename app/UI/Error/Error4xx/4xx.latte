@@ -1,6 +1,10 @@
+{templateType App\UI\Error\Error4xx\Error4xxTemplate}
+
 {block content}
-<h1 n:block=title>Oops...</h1>
-
-<p>Your browser sent a request that this server could not understand or process.</p>
-
-<p><small>error {$httpCode}</small></p>
+	<div class="error-block">
+		<span class="error-code">{$httpCode}</span>
+		<h1 class="error-title">{$errorTitle}</h1>
+		<p class="error-text">{$errorDescription}</p>
+		<a n:href=":Front:Spaces: locale => $locale" class="error-back">{$backLabel}</a>
+	</div>
+{/block}

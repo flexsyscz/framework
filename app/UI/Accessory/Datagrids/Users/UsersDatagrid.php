@@ -14,6 +14,9 @@ use Nextras\Orm\Collection\ICollection;
 use Nextras\Orm\Entity\IEntity;
 
 
+/**
+ * @extends Datagrid<User>
+ */
 final class UsersDatagrid extends Datagrid
 {
 	public function __construct(UsersFacade $usersFacade, UsersFilterFormFactory $usersFilterFormFactory)
@@ -32,6 +35,10 @@ final class UsersDatagrid extends Datagrid
 	}
 
 
+	/**
+	 * @param ICollection<User> $collection
+	 * @return ICollection<User>
+	 */
 	public function processFilter(ICollection $collection, UsersFilterFormValues $values): ICollection
 	{
 		if ($values->username) {

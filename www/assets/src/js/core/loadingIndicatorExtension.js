@@ -26,10 +26,15 @@ export default class LoadingIndicatorExtension {
 	}
 
 	showLoader(event) {
-		event.detail.options.loadingIndicator?.classList.remove('d-none')
+		let className = event.detail.options.loadingIndicator?.getAttribute('data-toggle-class')
+		event.detail.options.loadingIndicator?.classList.remove(className ?? 'd-none')
 		const progressbar = event.detail.options.loadingIndicator?.querySelector('.progress-bar')
 		if (progressbar) {
 			progressbar.style.width = 0
+			if (this.progressbarHandler) {
+				clearInterval(this.progressbarHandler)
+			}
+
 			this.progressbarHandler = setInterval(() => {
 				this.calculateProgressBarValue()
 				if (this.progressbarValue < 95) {
@@ -51,8 +56,12 @@ export default class LoadingIndicatorExtension {
 		}
 
 		setTimeout(() => {
-			event.detail.options.loadingIndicator?.classList.add('d-none')
+			let className = event.detail.options.loadingIndicator?.getAttribute('data-toggle-class')
+			event.detail.options.loadingIndicator?.classList.add(className ?? 'd-none')
 			this.progressbarValue = 0
+
+			const progressbar = event.detail.options.loadingIndicator?.querySelector('.progress-bar')
+			progressbar.style.width = 0
 		}, 500)
 	}
 

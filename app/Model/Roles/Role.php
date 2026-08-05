@@ -17,7 +17,7 @@ use Nextras\Orm\Relationships\ManyHasMany;
  * @property 		string							$title
  * @property 		string|null						$description
  *
- * @property 		ManyHasMany|User[]				$users						{m:m User::$roles}
+ * @property 		ManyHasMany<User>|User[]		$users						{m:m User::$roles}
  */
 final class Role extends Entity implements Nette\Security\Role
 {

@@ -105,6 +105,9 @@ final class Authenticator implements Nette\Security\Authenticator, IdentityHandl
 	}
 
 
+	/**
+	 * @return array{list<string>, array<string, mixed>}
+	 */
 	private function hydrateUser(User $user): array
 	{
 		$roles = [];

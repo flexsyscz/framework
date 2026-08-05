@@ -23,7 +23,7 @@ final class RolesFacade extends Facade
 	public function create(Values $values): Role
 	{
 		$entity = new Role();
-		$entity->id = Uuid::uuid4();
+		$entity->id = Uuid::uuid4()->toString();
 		$entity->name = $values->name;
 		$entity->module = $values->module;
 		$entity->title = $values->title;

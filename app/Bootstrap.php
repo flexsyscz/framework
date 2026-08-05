@@ -32,7 +32,16 @@ class Bootstrap
 
 	public function initializeEnvironment(): void
 	{
-		$this->configurator->setDebugMode(true); // enable for your remote IP
+		$debugEnablerFile = $this->rootDir . '/config/.debug';
+		$debugMode = false;
+		if (file_exists($debugEnablerFile)) {
+			$contents = @file_get_contents($debugEnablerFile);
+			if ($contents !== false) {
+				$debugMode = explode("\n", $contents);
+			}
+		}
+
+		$this->configurator->setDebugMode($debugMode);
 		$this->configurator->enableTracy($this->rootDir . '/log');
 
 		$this->configurator->createRobotLoader()

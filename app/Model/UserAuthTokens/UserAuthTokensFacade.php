@@ -21,8 +21,8 @@ use Ramsey\Uuid\Uuid;
  */
 final class UserAuthTokensFacade extends Facade
 {
-	private const TokenValueLength = 20;
-	private const TokenValueExpires = '3 months';
+	private const int TokenValueLength = 20;
+	private const string TokenValueExpires = '3 months';
 
 
 	/**
@@ -32,7 +32,7 @@ final class UserAuthTokensFacade extends Facade
 	public function create(Values $values): UserAuthToken
 	{
 		$entity = new UserAuthToken();
-		$entity->id = Uuid::uuid4();
+		$entity->id = Uuid::uuid4()->toString();
 		$entity->user = $values->user;
 		$entity->tokenValue = Random::generate(self::TokenValueLength);
 		$entity->remoteAddress = $values->remoteAddress;
@@ -60,7 +60,7 @@ final class UserAuthTokensFacade extends Facade
 
 
 	/**
-	 * @param IEntity $entity
+	 * @param UserAuthToken $entity
 	 * @return void
 	 */
 	public function delete(IEntity $entity): void

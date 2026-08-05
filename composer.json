@@ -1,7 +1,7 @@
 {
 	"name": "flexsyscz/framework",
 	"description": "Flexsys Framework Project",
-	"keywords": ["flexsyscz", "framework", "odyssey"],
+	"keywords": ["flexsyscz", "framework", "voyager"],
 	"type": "project",
 	"license": ["MIT", "BSD-3-Clause", "GPL-2.0-only", "GPL-3.0-only"],
 	"authors": [
@@ -12,22 +12,22 @@
 		}
 	],
 	"require": {
-		"php": ">= 8.1",
-		"nette/application": "^3.2",
-		"nette/bootstrap": "^3.2",
-		"nette/caching": "^3.2",
+		"php": ">= 8.4",
+		"nette/application": "^3.3",
+		"nette/bootstrap": "^3.3",
+		"nette/caching": "^3.4",
 		"nette/database": "^3.2",
 		"nette/di": "^3.2",
-		"nette/forms": "^3.2",
-		"nette/http": "^3.3",
-		"nette/mail": "^4.0",
-		"nette/robot-loader": "^4.0",
+		"nette/forms": "^3.3",
+		"nette/http": "^3.4",
+		"nette/mail": "^4.2",
+		"nette/robot-loader": "^4.1",
 		"nette/security": "^3.2",
-		"nette/utils": "^4.0",
-		"latte/latte": "^3.0",
-		"tracy/tracy": "^2.10",
+		"nette/utils": "^4.1",
+		"latte/latte": "^3.1",
+		"tracy/tracy": "^2.12",
 		"flexsyscz/application": "^1.0",
-		"flexsyscz/security": "^2.0",
+		"flexsyscz/security": "^2.1",
 		"flexsyscz/flash-messages": "^2.0",
 		"flexsyscz/date-time": "^2.1",
 		"flexsyscz/file-system": "^2.0",
@@ -35,11 +35,14 @@
 		"flexsyscz/localization": "^2.0",
 		"flexsyscz/forms": "^2.0",
 		"flexsyscz/datagrids": "^2.0",
-		"ramsey/uuid": "^4.7"
+		"ramsey/uuid": "^4.9",
+		"dg/adminer-custom": "^3.3"
 	},
 	"require-dev": {
 		"nette/tester": "^2.5",
-		"symfony/thanks": "^1"
+		"symfony/thanks": "^1",
+		"phpstan/phpstan-nette": "^2.0",
+		"nette/coding-standard": "^3.5"
 	},
 	"autoload": {
 		"psr-4": {
@@ -49,7 +52,8 @@
 	"minimum-stability": "stable",
 	"config": {
 		"allow-plugins": {
-			"symfony/thanks": true
+			"symfony/thanks": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
 	}
 }

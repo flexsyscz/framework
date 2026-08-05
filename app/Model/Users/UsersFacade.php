@@ -26,7 +26,7 @@ final class UsersFacade extends Flexsyscz\Model\Users\UsersFacade
 	public function create(Values $values): User
 	{
 		$entity = new User();
-		$entity->id = Uuid::uuid4();
+		$entity->id = Uuid::uuid4()->toString();
 		$entity->username = $values->username;
 		$entity->password = $values->password;
 

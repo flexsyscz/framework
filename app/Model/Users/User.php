@@ -20,8 +20,8 @@ use Nextras\Orm\Relationships\OneHasMany;
  * @property        DateTimeImmutable|null              $updatedAt
  * @property        DateTimeImmutable|null              $deletedAt
  *
- * @property        OneHasMany|UserAuthToken[]          $authTokens                                     {1:m UserAuthToken::$user}
- * @property        ManyHasMany|Role[]                  $roles                                          {m:m Role::$users, isMain=true}
+ * @property        OneHasMany<UserAuthToken>|UserAuthToken[]   $authTokens                             {1:m UserAuthToken::$user}
+ * @property        ManyHasMany<Role>|Role[]            $roles                                          {m:m Role::$users, isMain=true}
  */
 final class User extends Flexsyscz\Model\Users\User
 {
